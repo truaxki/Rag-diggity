@@ -1,0 +1,44 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Distribution / packaging
+*.egg-info/
+build/
+dist/
+
+# Logs
+*.log
+
+# Unit test / coverage reports
+htmlcov/
+.coverage
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.pytest_cache/
+
+# Environment variables file
+.env
+
+# Ignore vector store directory
+vectorStore/
+
+# Ignore documents in read/write file locations
+importTXT/new/*
+importTXT/processed/*
+importPDF/new/*
+importPDF/processed/*
+importDOCX/new/*
+importDOCX/processed/*
