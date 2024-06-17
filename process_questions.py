@@ -19,8 +19,7 @@ embedding_function = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
 
 # Load vectorstore
 vectorstore = Chroma(persist_directory=vectorstore_path, embedding_function=embedding_function)
-
-retriever = vectorstore.as_retriever()
+retriever = vectorstore.as_retriever(search_kwargs={"k": 3})
 
 # Prompt
 prompt = hub.pull("rlm/rag-prompt")
@@ -40,6 +39,9 @@ rag_chain = (
     | StrOutputParser()
 )
 # Example question
-question = "who was the first female United States Naval Academy graduate to be promoted to the rank of admiral and where do i find more information on her?"
+question = "what must all navy commands with with an intelegence mission complete by 15Jul2024?"
 answer = rag_chain.invoke(question)
 print(answer)
+
+docs = retriever.get_relevant_documents(question)
+print(docs)
